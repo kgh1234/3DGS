@@ -8,12 +8,14 @@ Original file is located at
 """
 
 # Commented out IPython magic to ensure Python compatibility.
-# %cd /content
+#프로젝트 세팅
+%cd /content
 !rm -rf gaussian-splatting  # 기존 프로젝트 디렉터리 삭제
 !git clone --recursive https://github.com/camenduru/gaussian-splatting
 
 # Commented out IPython magic to ensure Python compatibility.
-# %cd /content/gaussian-splatting/submodules/diff-gaussian-rasterization
+#추가 패키지 설치
+%cd /content/gaussian-splatting/submodules/diff-gaussian-rasterization
 !python setup.py build
 !python setup.py install
 
@@ -24,6 +26,7 @@ Original file is located at
 !pip install -q ./submodules/diff-gaussian-rasterization  # Gaussian Splatting 서브모듈 설치
 !pip install -q ./submodules/simple-knn  # KNN 서브모듈 설치
 
+#데이터 다운로드 및 학습
 !wget https://huggingface.co/camenduru/gaussian-splatting/resolve/main/tandt_db.zip
 !unzip tandt_db.zip
 
@@ -33,6 +36,7 @@ Original file is located at
 
 !unzip GaussianViewTest.zip
 
+#경로수정
 cfg_file_path = "/content/gaussian-splatting/GaussianViewTest/model/cfg_args"
 
 # 파일 열기 및 수정
@@ -72,19 +76,19 @@ print("경로가 수정되었습니다.")
 
 !python render.py -m /content/gaussian-splatting/GaussianViewTest/model
 
+#영상생성 및 다운로드
 !ffmpeg -framerate 3 -i /content/gaussian-splatting/GaussianViewTest/model/train/ours_30000/renders/%05d.png -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -c:v libx264 -r 3 -pix_fmt yuv420p /content/renders.mp4
-
 !ffmpeg -framerate 3 -i /content/gaussian-splatting/GaussianViewTest/model/train/ours_30000/gt/%05d.png -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -c:v libx264 -r 3 -pix_fmt yuv420p /content/gt.mp4 -y
 
 from google.colab import files
 files.download('/content/renders.mp4')
-
 from google.colab import files
 files.download('/content/gt.mp4')
 
 print(f"Ground Truth Image Shape: {gt_img.shape}")
 print(f"Rendered Image Shape: {rendered_img.shape}")
 
+#이미지품질비교(PSNR/SSIM)
 import os
 from skimage.metrics import structural_similarity as ssim
 from skimage.metrics import peak_signal_noise_ratio as psnr
