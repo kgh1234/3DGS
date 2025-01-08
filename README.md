@@ -101,9 +101,11 @@ Ground Truth 비디오(gt.mp4): 실제 Ground Truth 데이터를 기반으로 �
 #gt
 
 
-
 ## 참조 자료
 관련 연구: 3D Gaussian Splatting for Real-Time Rendering
+
 github : 
+
 https://github.com/graphdeco-inria/gaussian-splatting
+
 https://github.com/camenduru/gaussian-splatting-colab
