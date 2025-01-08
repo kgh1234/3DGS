@@ -21,8 +21,9 @@
 Google Colab 또는 CUDA가 지원되는 로컬 환경
 2. 설치 과정
 프로젝트 클론:
+
 ```
-     git clone --recursive https://github.com/camenduru/gaussian-splatting
+git clone --recursive https://github.com/camenduru/gaussian-splatting
 cd gaussian-splatting
    ```
 
