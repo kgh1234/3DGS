@@ -1,16 +1,29 @@
-GS-IR: 3D Gaussian Splatting for Inverse Rendering
+**GS-IR: 3D Gaussian Splatting for Inverse Rendering
+**
 프로젝트 개요
-GS-IR은 3D Gaussian Splatting(3DGS) 기술을 기반으로 역 렌더링 문제를 해결하는 최신 기술입니다. 이 프로젝트는 주어진 멀티뷰 이미지 데이터를 활용하여 **장면의 물리적 속성(기하학, 재질, 조명)**을 복원하고, 이를 통해 다음과 같은 작업을 수행합니다:
+이 프로젝트는 3D Gaussian Splatting(3DGS) 기술을 활용하여 멀티뷰 이미지 데이터로부터 3D 장면을 렌더링하고 평가합니다. 제공된 스크립트를 통해 데이터 학습, 렌더링, 품질 평가(PSNR 및 SSIM)를 자동으로 수행합니다. 주요 특징은 다음과 같습니다:
 
-재조명(Relighting): 새로운 조명 조건에서 장면을 다시 렌더링.
-재질 편집(Material Editing): 표면의 재질 속성을 조정.
-새로운 시점 합성(Novel View Synthesis): 새로운 카메라 위치에서 장면 생성.
-이 프로젝트는 다음을 포함합니다:
+- 효율적 학습: Gaussian Splatting을 이용해 멀티뷰 데이터를 학습.
+- 3D 렌더링: 학습된 모델을 사용해 새로운 시점의 3D 장면을 렌더링.
+- 평가 지표: PSNR 및 SSIM을 계산하여 렌더링 품질 평가.
 
-멀티뷰 학습 데이터 처리
-3D Gaussian 기반 장면 복원
-PSNR 및 SSIM을 통한 품질 평가
-Ground Truth와 비교하여 출력 영상 생성
+**주요 기능**
+1. 3D Gaussian Splatting: 멀티뷰 이미지 데이터를 기반으로 3D 장면 구조와 시각적 정보를 효율적으로 학습 및 표현.
+2. 품질 평가: Ground Truth와 렌더링된 이미지를 비교하여 PSNR 및 SSIM 지표 계산.
+3. 비디오 출력: 렌더링 결과와 Ground Truth 이미지를 비디오로 변환해 결과 시각화.
+
+
+**설치 방법**
+1. 환경 준비
+Google Colab 또는 CUDA가 지원되는 로컬 환경
+2. 설치 과정
+프로젝트 클론:
+git clone --recursive https://github.com/camenduru/gaussian-splatting
+cd gaussian-splatting
+   
+
+
+
 
 # 3DGS
 ![renders+(1)+(1)](https://github.com/user-attachments/assets/49d8f136-a474-4b84-b1b5-435f3767a9e3)
