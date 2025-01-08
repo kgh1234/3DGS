@@ -1,5 +1,4 @@
-**GS-IR: 3D Gaussian Splatting for Inverse Rendering
-**
+#GS-IR: 3D Gaussian Splatting for Inverse Rendering
 프로젝트 개요
 이 프로젝트는 3D Gaussian Splatting(3DGS) 기술을 활용하여 멀티뷰 이미지 데이터로부터 3D 장면을 렌더링하고 평가합니다. 제공된 스크립트를 통해 데이터 학습, 렌더링, 품질 평가(PSNR 및 SSIM)를 자동으로 수행합니다. 주요 특징은 다음과 같습니다:
 
